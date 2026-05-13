@@ -1,0 +1,271 @@
+PYTHON LEARNING BASICS - ANSWERS & OUTPUT
+===========================================
+
+File: Python _Learning_basics.py
+Language: Python
+Author: Ramanan
+
+LEARNING TOPICS COVERED:
+========================
+
+1. BASIC CALCULATIONS & PRINT STATEMENTS
+   ✓ Calculate average of marks
+   ✓ Print multiple strings and variables
+   ✓ Display location information (city, state, pincode)
+
+2. CONDITIONAL STATEMENTS (if/elif/else)
+   ✓ Grade classification based on score
+   ✓ Stock trading signals (buy/sell based on price)
+   ✓ Employee role eligibility based on multiple conditions
+
+3. LOOPS
+   ✓ for loops with range()
+   ✓ for loops with lists
+   ✓ while loops with counters
+   ✓ enumerate() for index and value
+   ✓ break statement to exit loop early
+
+4. DATA TYPES
+   ✓ Integer (int): age, employees
+   ✓ Float (float): price, tax_rate, salary
+   ✓ String (str): names, cities
+   ✓ Boolean (bool): is_active, has_discount
+
+5. LISTS
+   ✓ Creating and accessing lists
+   ✓ List indexing (positive and negative)
+   ✓ List slicing
+   ✓ List methods: append(), insert(), remove(), pop()
+   ✓ Sorting lists
+   ✓ Built-in functions: sum(), max(), min(), len()
+
+6. TUPLES
+   ✓ Creating immutable tuples
+   ✓ Accessing tuple elements
+
+7. DICTIONARIES
+   ✓ Creating dictionaries with key-value pairs
+   ✓ Accessing values by key
+   ✓ Using .get() method for safe access
+   ✓ Adding/updating/removing keys
+   ✓ Dictionary methods: keys(), values(), items()
+
+8. LISTS OF DICTIONARIES
+   ✓ Accessing specific cells (row, column)
+   ✓ List comprehension to extract data
+   ✓ Filtering and transforming data
+
+9. SETS
+   ✓ Creating sets and removing duplicates
+   ✓ Set operations: difference (-), intersection (&), union (|)
+   ✓ Membership checking
+
+10. TYPE CONVERSION
+    ✓ str → int, str → float
+    ✓ int → str
+    ✓ float → int
+    ✓ round() function
+
+11. REAL-WORLD EXAMPLES
+    ✓ Billing calculator with discounts and GST
+    ✓ Quarterly sales analysis
+    ✓ Employee salary grades
+    ✓ Customer transaction summary
+
+EXPECTED OUTPUT SECTIONS:
+=========================
+
+SECTION 1: Basic Calculations
+Average of marks [78, 85, 90, 66]: 79.75
+Location: cumbum tamil_nadu 625516
+
+SECTION 2: Grade Determination
+Score 85 → B Grade
+
+SECTION 3: For Loops
+Numbers 1 to 5:
+1, 2, 3, 4, 5
+
+Stock prices analysis:
+Buy signal: 250 (price > 245)
+Sell signal: 240 (price < 242)
+
+SECTION 4: While Loop (Count up)
+0, 1, 2, 3, 4
+
+SECTION 5: Variables & F-strings
+My Name is Ramanan and my 23
+annual_salary: 360000
+
+SECTION 6: Arithmetic Operations
+10 + 3 = 13
+10 - 3 = 7
+10 * 3 = 30
+10 / 3 = 3.333...
+10 // 3 = 3
+10 % 3 = 1
+10 ** 3 = 1000
+
+SECTION 7: Data Types
+type(25) = <class 'int'>
+type(99.99) = <class 'float'>
+type("Priya") = <class 'str'>
+type(True) = <class 'bool'>
+
+SECTION 8: Comparison & Logical Operators
+5000 > 4500 = True
+5000 < 4500 = False
+5000 == 4500 = False
+5000 != 4500 = True
+5000 >= 5000 = True
+30 > 25 and 60000 > 50000 = True
+30 > 25 or 60000 > 80000 = True
+not 30 > 25 = False
+
+SECTION 9: Type Conversion
+"28" + 2 = 30
+"1299.99" * 1.18 = 1533.9882
+Year: 2024
+int(9.9) = 9
+round(9.6) = 10
+round(3.14159, 2) = 3.14
+
+SECTION 10: Billing Calculator
+Unit Price: 450
+Quantity: 12
+Discount Rate: 10%
+GST Rate: 18%
+
+Subtotal: 5400
+Discount: -540
+After discount: 4860
+GST (18%): 874.8
+Final bill: 5734.8
+
+SECTION 11: Lists - Indexing & Slicing
+List: [42000, 38000, 51000, 47000, 55000, 49000]
+First item (index 0): 42000
+Fourth item (index 3): 47000
+Last item (index -1): 49000
+Second to last (index -2): 55000
+Length: 6
+
+First 3 items (slice [0:3]): [42000, 38000, 51000]
+Items from index 2 to 4: [51000, 47000, 55000]
+Last 3 items: [47000, 55000, 49000]
+
+SECTION 12: List Modifications
+Original: ["Laptop", "Mouse", "Keyboard"]
+After append("Monitor"): ["Laptop", "Mouse", "Keyboard", "Monitor"]
+After insert(1, "Webcam"): ["Laptop", "Webcam", "Mouse", "Keyboard", "Monitor"]
+After remove("Mouse"): ["Laptop", "Webcam", "Keyboard", "Monitor"]
+
+SECTION 13: Sorting Lists
+Original: [5, 2, 8, 1, 9, 3]
+Sorted ascending: [1, 2, 3, 5, 8, 9]
+Sorted descending: [9, 8, 5, 3, 2, 1]
+
+SECTION 14: List Statistics
+Sales: [42000, 38000, 51000, 47000]
+Sum: 178000
+Max: 51000
+Min: 38000
+Average: 44500
+
+SECTION 15: Quarterly Analysis
+Q1 total: 131000
+Q2 total: 131000
+Q3 total: 172000
+Q4 total: 175000
+Best quarter total: 175000
+
+SECTION 16: Tuple Usage
+Employee Record: ("John Doe", 1005, 50000)
+Employee Name: John Doe
+Monthly Salary: 50000
+
+SECTION 17: Dictionary Usage
+Employee: {"name":"Ramanan", "age":23, "department":"analytics", "salary":140000, "is_active":True}
+Name: Ramanan
+Salary: 140000
+City (with default): "defalet"
+Updated salary: 82000
+
+Dictionary methods:
+Keys: dict_keys(['name', 'department', 'salary', 'is_active', 'city'])
+Values: dict_values(['Ramanan', 'analytics', 82000, True, 'coimbatore'])
+Items: [('name', 'Ramanan'), ('department', 'analytics'), ('salary', 82000), ('is_active', True), ('city', 'coimbatore')]
+'salary' in employee: True
+
+SECTION 18: Lists of Dictionaries (Table-like Data)
+Employees:
+- Arun | Sales | 55000 | good
+- Priya | Analytics | 75000 | excellent
+- Ravi | Sales | 48000 | average
+- Divya | IT | 68000 | excellent
+
+Access examples:
+employees[0]["name"] = "Arun"
+employees[1]["salary"] = 75000
+employees[-1]["dept"] = "IT"
+
+All Salaries: [55000, 75000, 48000, 68000]
+Average salary: 61500
+
+SECTION 19: Set Operations
+Cities: ["Chennai", "Coimbatore", "Chennai", "Bangalore", "Coimbatore", "Hyderabad", "Chennai"]
+Unique cities: {'Chennai', 'Coimbatore', 'Bangalore', 'Hyderabad'}
+Count unique: 4
+"Chennai" in unique_cities: True
+"Mumbai" in unique_cities: False
+
+Q1 Customers: {"A", "B", "C", "D"}
+Q2 Customers: {"C", "D", "E", "F"}
+New customers (Q2 - Q1): {'E', 'F'}
+Retained customers (Q1 & Q2): {'C', 'D'}
+All unique customers: {'A', 'B', 'C', 'D', 'E', 'F'}
+
+SECTION 20: Transaction Summary
+Transactions:
+- Arun | Laptop | 45000 | Paid
+- Priya | Phone | 22000 | Unpaid
+- Ravi | Tablet | 18000 | Paid
+- Arun | Mouse | 1500 | Paid
+
+Total Revenue: 86500
+Unique Customers: {'Arun', 'Priya', 'Ravi'}
+Paid Customers: ['Arun', 'Ravi', 'Arun']
+
+SECTION 21: Employee Grade Report
+Grade A Count: 2 employees (Priya: 75000, Divya: 82000)
+Grade B Count: 2 employees (Arun: 55000, Ravi: 48000)
+
+Details:
+Arun       | 55000  | Grade: B
+Priya      | 75000  | Grade: A
+Ravi       | 48000  | Grade: B
+Divya      | 82000  | Grade: A
+
+KEY LEARNING POINTS:
+====================
+
+✓ Lists are mutable (changeable), Tuples are immutable (fixed)
+✓ Dictionaries store data as key-value pairs (like database records)
+✓ List of dictionaries = Table (rows & columns)
+✓ Sets automatically remove duplicates
+✓ Always convert types before doing math operations
+✓ f-strings are the modern way to format text in Python
+✓ List comprehension: [expression for item in list]
+✓ Set operations useful for comparing datasets
+✓ Use .get() for safe dictionary access
+
+NOTES:
+======
+- Line 414: Typo found - price() should be print()
+- Line 423: Variable reference issue - age should be age_1
+- These would cause errors if executed
+- Code demonstrates excellent data manipulation patterns for analytics
+
+STATUS: Code successfully demonstrates Python fundamentals for data analysis
+COMPLETION: All 21 sections covered
+DATE: 2026-05-13
