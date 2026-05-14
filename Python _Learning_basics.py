@@ -1,4 +1,3 @@
-
 marks = [78, 85, 90, 66]
 average = sum(marks) / len(marks)
 print(average)
@@ -503,3 +502,150 @@ for emp in employees:
     print(f"{emp['name']:10} | {emp['salary']:6} | Grade: {grade}")
 
 print(f"Grade A employees: {grade_a_count}")
+
+
+
+# function 
+# STEP 1: Define the function (write it once)
+def greet():
+    print("hello!")
+    print("Welcome.")
+# STEP 2: Call the function (run it)
+greet()
+greet()
+
+# Function with INPUT (parameters)
+def greet_person(name,role):
+    print(f"Hello {name}, Welcome to the {role} team!")
+
+greet_person("Arun","Analytics")
+greet_person("priya","sales")
+
+# Without return — just does something
+def show_salary(salary):
+    print(f"Salary: {salary}")       # prints but returns nothing
+
+# With return — produces a value
+def calculate_gst(price, rate=0.18):   # rate has a DEFAULT value
+    gst = price * rate
+    return gst  
+
+#Use the returned value 
+tax = calculate_gst(1000)            # tax = 180.0
+luxury_tax = calculate_gst(5000,0.28)         # custom rate
+print(f"standard GST: {tax}")
+print(f"Luxury GST: {luxury_tax}")
+print(f"Final price: {1000 + tax}")   # use directly in expression
+
+# Return multiple values :
+def sales_summary(sales_list):
+    total= sum(sales_list)
+    average = total/len(sales_list)
+    best= max(sales_list)
+    worst = min(sales_list)
+    return total, average, best, worst
+
+sale =[42000, 51000, 38000, 67000, 45000]
+total, avg, best, worst = sales_summary(sale)
+print(f"Total:{total} | Average: {avg} | Best: {best} | Worst: {worst}")
+
+# payslip calculator
+def generate_payslip(name, basic_salary):
+    hra = basic_salary * 0.20
+    da = basic_salary * 0.15
+    gross = basic_salary + hra + da
+    tax = gross * 0.10
+    net = gross - tax
+    return{
+        "name": name,
+        "basic": basic_salary,
+        "hra": hra,
+        "da": da,
+        "gross": gross,
+        "tax": tax,
+        "net_salary": net
+}
+
+payslip = generate_payslip("Arun", 50000)
+for key,val in payslip.items():
+    print(f"{key:12}: {val}")
+
+# sales_report
+# ============================================
+#   SALES REPORTING SYSTEM — Week 1 Project
+# ============================================
+
+#---DATA---
+# A list of dictionares = our "database table"
+sales_records =[
+    {"rep":"Arun",  "region": "South", "product": "Laptop", "amount": 85000, "month": "Jan"},
+    {"rep":"Priya",  "region": "North", "product": "Phone", "amount": 62000, "month": "Jan"},
+    {"rep":"Ravi",  "region": "South", "product": "Tablet", "amount": 41000, "month": "Feb"},
+    {"rep":"Divya",  "region": "East", "product": "Laptop", "amount": 97000, "month": "Feb"},
+    {"rep":"Arun",  "region": "South", "product": "Phone", "amount": 55000, "month": "Feb"},
+    {"rep":"Karthik",  "region": "West", "product": "Tablet", "amount": 73000, "month": "Mar"},
+    {"rep":"Priya",  "region": "North", "product": "Laptop", "amount": 91000, "month": "Mar"},
+    {"rep":"Ravi",  "region": "South", "product": "Phone", "amount": 38000, "month": "Mar"}
+
+]
+
+#---FUNCTIONS----
+
+def get_perfomance_grade(amount):
+     # """Returns a grade based on sale amount"""
+     if amount >= 90000: return "S" #super
+     elif amount >= 70000: return "A" #excellent
+     elif amount >= 50000: return "B" #good 
+     else:                 return "c"  #need work
+    
+def total_by_rep(records,rep_name):
+    # """Total sales for one rep"""
+    total = 0
+    for record in records:
+        if record["rep"] == rep_name:
+            total += record["amount"]
+    return total 
+
+def total_by_region(records,region_name):
+     # """Total sales for one region"""
+    return sum(r["amount"] for r in records if r["region"] == region_name)
+
+
+# --- MAIN REPORT ---
+
+print("=" * 55)
+print("      QUARTERLY SALES REPORT - Q1 2024")
+print("=" * 45)
+
+
+# 1. Print all transactions with grade 
+print(f"{'Rep':<10} {'Region':<10} {'Product':<8} {'Amount':>8} {grade}")
+print("-" * 45)
+for rec in sales_records:
+    grade = get_perfomance_grade(rec["amount"])
+    print(f"{rec['rep']:<10} {rec['region']:<8} {rec['product']:<8} {rec['amount']:>8,} [{grade}]")
+
+
+# 2. Summary statistics
+all_amounts = [r["amount"] for r in sales_records]
+print(f"Total revenue:   {sum(all_amounts):>10,}")
+print(f"Aveage sale:   {sum(all_amounts)//len(all_amounts):>10,}")
+print(f"best sale:   {max(all_amounts):>10}")
+print(f"Worst sale:    {min(all_amounts):>10,}")
+
+# 3. Sales by rep
+print("" \
+"---- By Sales Rep ----")
+reps = set(r["rep"] for r in sales_records)
+for rep in sorted(reps):
+    total = total_by_rep(sales_records,rep)
+    print(f"   {rep:<10}: {total:>8,}")
+
+# 4. Sales by region
+print("------By Region -----")
+regions = set(r["region"] for r in sales_records)
+for region in sorted(regions):
+    total= total_by_region(sales_records,region)
+    print(f"    {region:>8}: {total:>8,}")
+
+print("" + "=" * 55)
