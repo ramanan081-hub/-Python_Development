@@ -1,7 +1,7 @@
 
 # File I/O & CSV handling
 
-# METHOD 1: Basic opne /close (you must close manually)
+# METHOD 1: Basic open/close (you must close manually)
 
 file = open("data.txt","r") # r- read mode
 content = file.read()
@@ -16,7 +16,7 @@ print(content)
 
 # File modes -what the second argument means 
 # "r" - read only(file must exist)
-# "w" - write (creates new file or overwrtes existing)
+# "w" - write (creates new file or overwrites existing)
 # "a" - append (add to end of existing file)
 # "r+" - read and write 
 
@@ -37,14 +37,14 @@ with open("employees.txt","r") as f:
 print(all_text)
 print(type(all_text))
 
-#READ METHODE2: readline() - list of lines(each line = one string)
+#READ METHOD2: readlines() - list of lines(each line = one string)
 with open("employees.txt","r") as f:
     lines = f.readlines()
 print(lines)
 print(lines[0])
 print(lines[0].strip())
 
-#READ METHOD3: iterate line by line - bast for large files
+#READ METHOD3: iterate line by line - best for large files
 with open("employees.txt","r") as f:
     for line in f:
         clean = line.strip()
@@ -79,7 +79,7 @@ with open("sales.csv","w",newline="") as f:
     writer.writerow(["feb","south",91000,80000])
     writer.writerow(["feb","north",77000,70000])
 
-# Reading CSV -DirctReader gives each row as a dictionary 
+# Reading CSV - DictReader gives each row as a dictionary 
 with open("sales.csv","r") as f:
     reader = csv.DictReader(f)      # header row becomes dict keys
     for row in reader:
