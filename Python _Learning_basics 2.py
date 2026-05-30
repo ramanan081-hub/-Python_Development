@@ -184,3 +184,61 @@ def read_number_from_input(text):
 read_number_from_input("42")
 read_number_from_input("hello")
 
+
+
+
+import csv
+
+# Messy data with problems
+with open("messy_sales.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["rep", "sales", "region"])
+    writer.writerow(["Arun",  "85000", "South"])
+    writer.writerow(["Priya", "N/A",   "North"])  # bad value
+    writer.writerow(["Ravi",  "71000", "East"])
+    writer.writerow(["Divya", "",      "West"])   # empty value
+    writer.writerow(["Karthik","93000", "South"])
+
+# Robust reader — skips bad rows, reports them
+good_rows = []
+bad_rows = []
+
+with open("messy_sales.csv", "r") as f:
+    for i, row in enumerate(csv.DictReader(f), start=2):
+        try:
+            sales = int(row["sales"])   # will fail on "N/A" and ""
+            if sales <= 0:
+                raise ValueError("Sales must be positive")
+            good_rows.append({"rep": row["rep"], "sales": sales})
+        except ValueError as e:
+            bad_rows.append(f"Row {i}: {row['rep']} — {e}")
+
+print(f"Processed: {len(good_rows)} good, {len(bad_rows)} skipped")
+print(f"Total sales: {sum(r['sales'] for r in good_rows):,}")
+print("Skipped rows:")
+for bad in bad_rows:
+    print(f"  {bad}")
+
+
+
+def safe_calculate(a, b, operation):
+    try:
+        if operation == "+":  return a + b
+        elif operation == "-": return a - b
+        elif operation == "*": return a * b
+        elif operation == "/":
+            if b == 0: raise ZeroDivisionError
+            return a / b
+        else:
+            raise ValueError(f"Unknown operation: {operation}")
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero"
+    except TypeError:
+        return "Error: Inputs must be numbers"
+    except ValueError as e:
+        return f"Error: {e}"
+
+print(safe_calculate(10, 2, "/"))    # 5.0
+print(safe_calculate(10, 0, "/"))    # Error: divide by zero
+print(safe_calculate("x", 5, "+"))  # Error: inputs must be numbers
+print(safe_calculate(5, 3, "%"))    # Error: Unknown operation: %
